@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "cbc64a23-cf0b-4ba1-ba91-f51d27c6fe8b",
+		"name": "HTTPBin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://httpbin.org/get?myParameter=1&myparameter2=2&myparameter3=newParam",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "myParameter",
+							"value": "1"
+						},
+						{
+							"key": "myparameter2",
+							"value": "2"
+						},
+						{
+							"key": "myparameter3",
+							"value": "newParam"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dedd63e2-b343-4505-a55b-e8500fac17a0",
+						"exec": [
+							"let response = pm.response.json();",
+							"pm.globals.set(\"uuid\", response.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://httpbin.org/uuid",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"uuid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "28025a62-30b6-47b9-93d2-8575ff4c25d6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Angsuman\",\n\t\"email\": \"testemail@testemail.com\",\n\t\"id\": \"{{uuid}}\"\n}"
+				},
+				"url": {
+					"raw": "https://httpbin.org/post",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://requestbin.fullcontact.com/10x8vgw1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://requestbin.fullcontact.com/10x8vgw1",
+					"protocol": "http",
+					"host": [
+						"requestbin",
+						"fullcontact",
+						"com"
+					],
+					"path": [
+						"10x8vgw1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
