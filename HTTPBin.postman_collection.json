@@ -145,6 +145,31 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "LocalTest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/test/api/values/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"test",
+						"api",
+						"values",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
